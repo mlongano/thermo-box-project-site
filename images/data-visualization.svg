@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#e8f5e9"/>
+  
+  <!-- Chart Border -->
+  <rect x="50" y="50" width="500" height="300" fill="#ffffff" stroke="#388e3c" stroke-width="2" rx="5"/>
+  
+  <!-- Chart Title -->
+  <text x="300" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">Temperature Data Visualization</text>
+  
+  <!-- X and Y Axes -->
+  <line x1="80" y1="300" x2="500" y2="300" stroke="#616161" stroke-width="2"/>
+  <line x1="80" y1="80" x2="80" y2="300" stroke="#616161" stroke-width="2"/>
+  
+  <!-- X-Axis Labels -->
+  <text x="120" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#616161">0h</text>
+  <text x="200" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#616161">1h</text>
+  <text x="280" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#616161">2h</text>
+  <text x="360" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#616161">3h</text>
+  <text x="440" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#616161">4h</text>
+  
+  <!-- Y-Axis Labels -->
+  <text x="60" y="280" font-family="Arial" font-size="12" text-anchor="end" fill="#616161">5°C</text>
+  <text x="60" y="230" font-family="Arial" font-size="12" text-anchor="end" fill="#616161">10°C</text>
+  <text x="60" y="180" font-family="Arial" font-size="12" text-anchor="end" fill="#616161">15°C</text>
+  <text x="60" y="130" font-family="Arial" font-size="12" text-anchor="end" fill="#616161">20°C</text>
+  <text x="60" y="80" font-family="Arial" font-size="12" text-anchor="end" fill="#616161">25°C</text>
+  
+  <!-- Grid Lines -->
+  <line x1="80" y1="280" x2="500" y2="280" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="80" y1="230" x2="500" y2="230" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="80" y1="180" x2="500" y2="180" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="80" y1="130" x2="500" y2="130" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="80" y1="80" x2="500" y2="80" stroke="#e0e0e0" stroke-width="1"/>
+  
+  <line x1="120" y1="80" x2="120" y2="300" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="200" y1="80" x2="200" y2="300" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="280" y1="80" x2="280" y2="300" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="360" y1="80" x2="360" y2="300" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="440" y1="80" x2="440" y2="300" stroke="#e0e0e0" stroke-width="1"/>
+  
+  <!-- Data Series Lines -->
+  <!-- Internal Temperature 1 -->
+  <polyline points="80,180 120,170 200,160 280,130 360,120 440,110 500,105" 
+            fill="none" stroke="#2196f3" stroke-width="3"/>
+  <!-- Internal Temperature 2 -->
+  <polyline points="80,182 120,172 200,162 280,132 360,122 440,112 500,107" 
+            fill="none" stroke="#03a9f4" stroke-width="3" stroke-dasharray="5,5"/>
+  <!-- External Temperature 1 -->
+  <polyline points="80,250 120,245 200,240 280,235 360,230 440,225 500,220" 
+            fill="none" stroke="#f44336" stroke-width="3"/>
+  <!-- External Temperature 2 -->
+  <polyline points="80,252 120,247 200,242 280,237 360,232 440,227 500,222" 
+            fill="none" stroke="#e57373" stroke-width="3" stroke-dasharray="5,5"/>
+  
+  <!-- Data Points -->
+  <!-- Internal Temperature 1 -->
+  <circle cx="80" cy="180" r="4" fill="#2196f3"/>
+  <circle cx="120" cy="170" r="4" fill="#2196f3"/>
+  <circle cx="200" cy="160" r="4" fill="#2196f3"/>
+  <circle cx="280" cy="130" r="4" fill="#2196f3"/>
+  <circle cx="360" cy="120" r="4" fill="#2196f3"/>
+  <circle cx="440" cy="110" r="4" fill="#2196f3"/>
+  <circle cx="500" cy="105" r="4" fill="#2196f3"/>
+  
+  <!-- Internal Temperature 2 -->
+  <circle cx="80" cy="182" r="4" fill="#03a9f4"/>
+  <circle cx="120" cy="172" r="4" fill="#03a9f4"/>
+  <circle cx="200" cy="162" r="4" fill="#03a9f4"/>
+  <circle cx="280" cy="132" r="4" fill="#03a9f4"/>
+  <circle cx="360" cy="122" r="4" fill="#03a9f4"/>
+  <circle cx="440" cy="112" r="4" fill="#03a9f4"/>
+  <circle cx="500" cy="107" r="4" fill="#03a9f4"/>
+  
+  <!-- External Temperature 1 -->
+  <circle cx="80" cy="250" r="4" fill="#f44336"/>
+  <circle cx="120" cy="245" r="4" fill="#f44336"/>
+  <circle cx="200" cy="240" r="4" fill="#f44336"/>
+  <circle cx="280" cy="235" r="4" fill="#f44336"/>
+  <circle cx="360" cy="230" r="4" fill="#f44336"/>
+  <circle cx="440" cy="225" r="4" fill="#f44336"/>
+  <circle cx="500" cy="220" r="4" fill="#f44336"/>
+  
+  <!-- External Temperature 2 -->
+  <circle cx="80" cy="252" r="4" fill="#e57373"/>
+  <circle cx="120" cy="247" r="4" fill="#e57373"/>
+  <circle cx="200" cy="242" r="4" fill="#e57373"/>
+  <circle cx="280" cy="237" r="4" fill="#e57373"/>
+  <circle cx="360" cy="232" r="4" fill="#e57373"/>
+  <circle cx="440" cy="227" r="4" fill="#e57373"/>
+  <circle cx="500" cy="222" r="4" fill="#e57373"/>
+  
+  <!-- Legend -->
+  <rect x="350" y="350" width="200" height="40" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="5"/>
+  
+  <line x1="360" y1="360" x2="380" y2="360" stroke="#2196f3" stroke-width="3"/>
+  <text x="385" y="364" font-family="Arial" font-size="10" fill="#616161">Internal Temp 1</text>
+  
+  <line x1="360" y1="370" x2="380" y2="370" stroke="#03a9f4" stroke-width="3" stroke-dasharray="5,5"/>
+  <text x="385" y="374" font-family="Arial" font-size="10" fill="#616161">Internal Temp 2</text>
+  
+  <line x1="460" y1="360" x2="480" y2="360" stroke="#f44336" stroke-width="3"/>
+  <text x="485" y="364" font-family="Arial" font-size="10" fill="#616161">External Temp 1</text>
+  
+  <line x1="460" y1="370" x2="480" y2="370" stroke="#e57373" stroke-width="3" stroke-dasharray="5,5"/>
+  <text x="485" y="374" font-family="Arial" font-size="10" fill="#616161">External Temp 2</text>
+</svg>

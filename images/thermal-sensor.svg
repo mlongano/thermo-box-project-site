@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#e0f7fa"/>
+  
+  <!-- Sensor housing -->
+  <rect x="200" y="100" width="200" height="100" rx="10" fill="#78909c" stroke="#455a64" stroke-width="2"/>
+  <rect x="210" y="110" width="180" height="80" rx="5" fill="#546e7a"/>
+  
+  <!-- Sensor probe -->
+  <rect x="250" y="200" width="100" height="150" rx="5" fill="#b0bec5" stroke="#455a64" stroke-width="2"/>
+  <rect x="290" y="200" width="20" height="150" fill="#90a4ae"/>
+  
+  <!-- Sensor tip -->
+  <circle cx="300" cy="350" r="20" fill="#ff5722" stroke="#e64a19" stroke-width="2"/>
+  <circle cx="300" cy="350" r="10" fill="#ff8a65"/>
+  
+  <!-- Connection cable -->
+  <path d="M350 150 C 400 150, 400 250, 450 250 L 550 250" stroke="#263238" stroke-width="10" fill="none"/>
+  
+  <!-- Display panel -->
+  <rect x="230" y="130" width="140" height="40" rx="3" fill="#eceff1" stroke="#b0bec5" stroke-width="1"/>
+  <text x="300" y="155" font-family="Arial" font-size="16" text-anchor="middle" fill="#01579b">22.5°C</text>
+  
+  <!-- Temperature waves -->
+  <path d="M320 360 C 330 350, 340 370, 350 360 C 360 350, 370 370, 380 360 C 390 350, 400 370, 410 360" stroke="#ff5722" stroke-width="3" fill="none" opacity="0.7"/>
+  <path d="M320 380 C 330 370, 340 390, 350 380 C 360 370, 370 390, 380 380 C 390 370, 400 390, 410 380" stroke="#ff5722" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Title -->
+  <text x="300" y="70" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#01579b">Temperature Sensor</text>
+</svg>
