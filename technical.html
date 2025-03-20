@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Details - Thermal Transmittance Measurement</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Add syntax highlighting for code blocks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <!-- Header  -->
+  <include src="header.html"></include>
+
+  <!-- Page Header -->
+  <section class="hero" style="height: 40vh;">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Technical Details</h1>
+        <p>Hardware components, software architecture, and setup instructions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Overview -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">System Overview</h2>
+
+      <div style="max-width: 800px; margin: 0 auto 2rem;">
+        <p>Our thermal transmittance measurement system utilizes affordable, readily available components to create a
+          reliable scientific instrument. The system architecture consists of:</p>
+
+        <ol style="margin: 1.5rem 0; padding-left: 1.5rem;">
+          <li><strong>Hardware Layer:</strong> Raspberry Pi 4, temperature sensors, and physical mounting apparatus</li>
+          <li><strong>Acquisition Layer:</strong> Python scripts for collecting and processing temperature data</li>
+          <li><strong>Analysis Layer:</strong> Algorithms for stability detection and transmittance calculation</li>
+          <li><strong>Presentation Layer:</strong> Web interface for data visualization and interaction</li>
+        </ol>
+
+        <div style="text-align: center; margin: 2rem 0;">
+          <img src="images/system-diagram.jpg" alt="System Architecture Diagram"
+            style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Figure 1: High-level system architecture
+            diagram</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hardware Components -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <h2 class="section-title">Hardware Components</h2>
+
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+          <!-- Raspberry Pi -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Computing Platform</h3>
+              <ul style="margin-bottom: 1rem;">
+                <li><strong>Raspberry Pi 4 (4GB RAM)</strong></li>
+                <li>Operating System: Raspberry Pi OS (Bullseye)</li>
+                <li>Storage: 32GB microSD card</li>
+                <li>Power: 5V 3A USB-C power supply</li>
+              </ul>
+              <p>The Raspberry Pi serves as the central controller, handling data acquisition, processing, and web
+                server functionality.</p>
+            </div>
+          </div>
+
+          <!-- Temperature Sensors -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Temperature Sensors</h3>
+              <ul style="margin-bottom: 1rem;">
+                <li><strong>Sensor Type:</strong> DS18B20 digital temperature sensors</li>
+                <li><strong>Quantity:</strong> 4 sensors (2 internal, 2 external)</li>
+                <li><strong>Accuracy:</strong> ±0.5°C from -10°C to +85°C</li>
+                <li><strong>Resolution:</strong> Configurable up to 12-bit (0.0625°C)</li>
+              </ul>
+              <p>These waterproof digital temperature sensors use the 1-Wire protocol, allowing multiple sensors to
+                share a single GPIO pin.</p>
+            </div>
+          </div>
+
+          <!-- Connection Components -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Connection Components</h3>
+              <ul style="margin-bottom: 1rem;">
+                <li>4.7kΩ pull-up resistor for 1-Wire bus</li>
+                <li>Breadboard for circuit connections</li>
+                <li>Jumper wires for connections</li>
+                <li>Heat-resistant sensor cables (1m length)</li>
+                <li>Thermal paste for sensor contact</li>
+              </ul>
+              <p>The DS18B20 sensors require a pull-up resistor on the data line to function correctly with the 1-Wire
+                protocol.</p>
+            </div>
+          </div>
+
+          <!-- Mounting System -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Mounting System</h3>
+              <ul style="margin-bottom: 1rem;">
+                <li>Adjustable sensor mounting brackets</li>
+                <li>Material sample holder (30cm × 30cm)</li>
+                <li>Insulated testing chamber</li>
+                <li>Spring-loaded pressure mechanism</li>
+              </ul>
+              <p>The mounting system ensures consistent sensor contact with the test material and minimizes edge effects
+                that could impact measurement accuracy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <h3>Circuit Diagram</h3>
+          <div style="text-align: center; margin: 1.5rem 0;">
+            <img src="images/circuit-diagram.jpg" alt="Circuit Diagram"
+              style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Figure 2: Connection diagram for DS18B20
+              sensors to Raspberry Pi GPIO</p>
+          </div>
+
+          <p>The connection is straightforward with the 1-Wire protocol:</p>
+          <ul>
+            <li>Connect VDD (red wire) of all sensors to 3.3V power (Pin 1 on Raspberry Pi)</li>
+            <li>Connect GND (black wire) of all sensors to ground (Pin 6 on Raspberry Pi)</li>
+            <li>Connect DATA (yellow wire) of all sensors to GPIO 4 (Pin 7 on Raspberry Pi)</li>
+            <li>Place a 4.7kΩ pull-up resistor between the DATA line and 3.3V</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Software Architecture -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Software Architecture</h2>
+
+      <div style="max-width: 900px; margin: 0 auto;">
+        <p>Our software system consists of several Python modules that handle different aspects of the measurement
+          process:</p>
+
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 1.5rem;">
+          <!-- Data Acquisition -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Data Acquisition</h3>
+              <p><code>sensor_reader.py</code> - Interfaces with the DS18B20 sensors through the 1-Wire protocol to
+                collect temperature readings at regular intervals.</p>
+              <p>Key features:</p>
+              <ul>
+                <li>Automatic sensor detection</li>
+                <li>Configurable sampling rate</li>
+                <li>Error handling for sensor failures</li>
+                <li>Temperature data validation</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Data Processing -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Data Processing</h3>
+              <p><code>stability_detector.py</code> - Analyzes temperature trends to determine when the system has
+                reached thermal stability.</p>
+              <p>Key features:</p>
+              <ul>
+                <li>Moving window analysis</li>
+                <li>Statistical variance calculation</li>
+                <li>Configurable stability thresholds</li>
+                <li>Anomaly detection</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Calculation Engine -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Calculation Engine</h3>
+              <p><code>transmittance_calculator.py</code> - Computes thermal transmittance values based on temperature
+                differentials.</p>
+              <p>Key features:</p>
+              <ul>
+                <li>Implementation of U-value formula</li>
+                <li>Configurable material properties</li>
+                <li>Uncertainty estimation</li>
+                <li>Result validation</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Web Interface -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Web Interface</h3>
+              <p><code>web_server.py</code> - Flask-based web server that provides the user interface for the system.
+              </p>
+              <p>Key features:</p>
+              <ul>
+                <li>Real-time data visualization</li>
+                <li>Historical data access</li>
+                <li>Experiment configuration</li>
+                <li>Data export functionality</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 2.5rem;">Core Code Samples</h3>
+
+        <div style="margin: 1.5rem 0;">
+          <h4>Sensor Reading Module</h4>
+          <pre><code class="language-python">
+import glob
+import time
+from datetime import datetime
+
+class TemperatureSensor:
+    def __init__(self, sensor_id, location):
+        self.sensor_id = sensor_id
+        self.location = location  # 'internal_1', 'internal_2', 'external_1', or 'external_2'
+        self.readings = []
+
+    def read_temp(self):
+        try:
+            # Open the sensor's file
+            sensor_file = open(f"/sys/bus/w1/devices/{self.sensor_id}/w1_slave", "r")
+            sensor_data = sensor_file.read()
+            sensor_file.close()
+
+            # Extract temperature value
+            if "YES" in sensor_data:
+                temp_pos = sensor_data.find("t=")
+                if temp_pos != -1:
+                    temp_string = sensor_data[temp_pos+2:]
+                    temp_c = float(temp_string) / 1000.0
+
+                    # Add reading to history with timestamp
+                    self.readings.append({
+                        'timestamp': datetime.now(),
+                        'temperature': temp_c
+                    })
+
+                    # Keep only the last 100 readings
+                    if len(self.readings) > 100:
+                        self.readings.pop(0)
+
+                    return temp_c
+
+            return None
+        except Exception as e:
+            print(f"Error reading sensor {self.sensor_id}: {e}")
+            return None
+
+class SensorManager:
+    def __init__(self):
+        self.sensors = []
+        self.initialize_sensors()
+
+    def initialize_sensors(self):
+        # Find all connected 1-Wire devices
+        device_folders = glob.glob("/sys/bus/w1/devices/28-*")
+
+        if len(device_folders) < 4:
+            raise Exception(f"Not enough temperature sensors detected. Found {len(device_folders)}, need 4.")
+
+        # Create sensor objects with appropriate locations
+        locations = ['internal_1', 'internal_2', 'external_1', 'external_2']
+        for i, folder in enumerate(device_folders[:4]):
+            sensor_id = folder.split("/")[-1]
+            self.sensors.append(TemperatureSensor(sensor_id, locations[i]))
+
+        print(f"Initialized {len(self.sensors)} temperature sensors")
+
+    def read_all_temperatures(self):
+        readings = {}
+        for sensor in self.sensors:
+            temperature = sensor.read_temp()
+            readings[sensor.location] = temperature
+        return readings
+
+    def get_average_temperatures(self):
+        temperatures = self.read_all_temperatures()
+
+        # Calculate internal and external averages
+        internal_temps = [temperatures['internal_1'], temperatures['internal_2']]
+        external_temps = [temperatures['external_1'], temperatures['external_2']]
+
+        internal_avg = sum(internal_temps) / len(internal_temps)
+        external_avg = sum(external_temps) / len(external_temps)
+
+        return {
+            'internal_avg': internal_avg,
+            'external_avg': external_avg,
+            'difference': internal_avg - external_avg
+        }
+          </code></pre>
+        </div>
+
+        <div style="margin: 1.5rem 0;">
+          <h4>Transmittance Calculation Module</h4>
+          <pre><code class="language-python">
+class TransmittanceCalculator:
+    def __init__(self, material_thickness, heat_flow_density=10):
+        """
+        Initialize the calculator with material properties
+
+        Parameters:
+        material_thickness - thickness of material in meters
+        heat_flow_density - heat flow in W/m² (assumed constant for simplicity)
+        """
+        self.material_thickness = material_thickness
+        self.heat_flow_density = heat_flow_density
+
+    def calculate_thermal_conductivity(self, temp_difference):
+        """
+        Calculate thermal conductivity (λ) using Fourier's law:
+        λ = (q * L) / ΔT
+
+        where:
+        q = heat flow density (W/m²)
+        L = material thickness (m)
+        ΔT = temperature difference (K)
+        """
+        if temp_difference <= 0:
+            raise ValueError("Temperature difference must be positive")
+
+        thermal_conductivity = (self.heat_flow_density * self.material_thickness) / temp_difference
+        return thermal_conductivity
+
+    def calculate_transmittance(self, internal_temp, external_temp):
+        """
+        Calculate thermal transmittance (U-value) in W/(m²·K)
+
+        U = q / ΔT
+
+        where:
+        q = heat flow density (W/m²)
+        ΔT = temperature difference (K)
+        """
+        temp_difference = internal_temp - external_temp
+
+        if temp_difference <= 0:
+            raise ValueError("Internal temperature must be greater than external temperature")
+
+        transmittance = self.heat_flow_density / temp_difference
+        return transmittance
+
+    def is_measurement_reliable(self, temp_readings, time_window=30):
+        """
+        Determine if the measurement is reliable based on temperature stability
+
+        Parameters:
+        temp_readings - list of temperature reading dictionaries with timestamps
+        time_window - window in minutes to check for stability
+        """
+        if len(temp_readings) < 10:
+            return False
+
+        # Check only readings in the specified time window
+        recent_readings = [r for r in temp_readings if
+                          (datetime.now() - r['timestamp']).total_seconds() / 60 <= time_window]
+
+        if len(recent_readings) < 10:
+            return False
+
+        # Calculate standard deviation of readings
+        temperatures = [r['temperature'] for r in recent_readings]
+        mean_temp = sum(temperatures) / len(temperatures)
+        variance = sum((t - mean_temp) ** 2 for t in temperatures) / len(temperatures)
+        std_dev = variance ** 0.5
+
+        # Consider stable if standard deviation is less than 0.1°C
+        return std_dev < 0.1
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Setup Instructions -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <h2 class="section-title">Setup Instructions</h2>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="card">
+          <div class="card-content">
+            <h3>Hardware Setup</h3>
+            <ol style="margin-bottom: 1.5rem;">
+              <li>Assemble the Raspberry Pi with power supply and microSD card containing Raspberry Pi OS.</li>
+              <li>Connect the DS18B20 sensors to the Raspberry Pi following the circuit diagram in Figure 2.</li>
+              <li>Mount the sensors in their appropriate positions: two on the "internal" side and two on the "external"
+                side of the test material.</li>
+              <li>Apply a small amount of thermal paste to ensure good thermal contact between the sensors and the
+                material.</li>
+              <li>Secure the material in the test apparatus, ensuring it's properly aligned with the sensors.</li>
+            </ol>
+
+            <h3>Software Setup</h3>
+            <ol style="margin-bottom: 1.5rem;">
+              <li>Enable the 1-Wire interface on the Raspberry Pi:
+                <pre><code class="language-bash">
+# Edit the boot config file
+sudo nano /boot/config.txt
+
+# Add the following line at the end
+dtoverlay=w1-gpio
+
+# Save and exit, then reboot
+sudo reboot
+                </code></pre>
+              </li>
+              <li>Install required Python packages:
+                <pre><code class="language-bash">
+sudo apt update
+sudo apt install python3-pip python3-flask
+
+# Install additional Python packages
+pip3 install flask-socketio pandas matplotlib
+                </code></pre>
+              </li>
+              <li>Clone the project repository:
+                <pre><code class="language-bash">
+git clone https://github.com/school-project/thermal-transmittance.git
+cd thermal-transmittance
+                </code></pre>
+              </li>
+              <li>Configure the system:
+                <pre><code class="language-bash">
+# Copy the example configuration file
+cp config.example.py config.py
+
+# Edit the configuration file with your settings
+nano config.py
+                </code></pre>
+              </li>
+              <li>Start the measurement system:
+                <pre><code class="language-bash">
+python3 main.py
+                </code></pre>
+              </li>
+            </ol>
+
+            <h3>Accessing the Web Interface</h3>
+            <ol>
+              <li>Open a web browser on any device connected to the same network as the Raspberry Pi.</li>
+              <li>Navigate to <code>http://[raspberry-pi-ip]:5000</code> where <code>[raspberry-pi-ip]</code> is the IP
+                address of your Raspberry Pi.</li>
+              <li>You can find the IP address of your Raspberry Pi by running <code>hostname -I</code> in the terminal.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Repository and Documentation -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Repository and Documentation</h2>
+
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <div class="card">
+          <div class="card-content">
+            <h3>Open Source Project</h3>
+            <p>All code and documentation for this project are available under an open-source license to encourage
+              educational use and further development.</p>
+
+            <div style="margin: 2rem 0;">
+              <a href="https://github.com/school-project/thermal-transmittance" class="btn btn-primary"
+                target="_blank">GitHub Repository</a>
+              <a href="#" class="btn btn-secondary">Download Documentation (PDF)</a>
+            </div>
+
+            <h3>What's Included</h3>
+            <ul style="text-align: left; margin: 1rem 0 1.5rem;">
+              <li>Complete Python source code for the measurement system</li>
+              <li>Hardware schematics and 3D printable models for the sensor mounts</li>
+              <li>Detailed installation and usage documentation</li>
+              <li>Calibration procedures and test protocols</li>
+              <li>Sample data sets for various materials</li>
+              <li>Educational materials explaining thermal transmittance concepts</li>
+            </ul>
+
+            <p>We encourage other schools and hobbyists to build upon our work and contribute improvements back to the
+              project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <include src="footer.html"></include>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
