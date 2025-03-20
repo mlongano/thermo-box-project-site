@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Data - Thermal Transmittance Measurement</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Thermal<span>Transmittance</span></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
+        <li class="nav-item"><a href="data.html" class="nav-link">Live Data</a></li>
+        <li class="nav-item"><a href="findings.html" class="nav-link">Findings</a></li>
+        <li class="nav-item"><a href="technical.html" class="nav-link">Technical</a></li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero" style="height: 40vh;">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Live Data</h1>
+        <p>Real-time temperature readings and transmittance calculations</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Experiment Info -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Current Measurement</h2>
+      
+      <div class="card" style="max-width: 800px; margin: 0 auto 2rem;">
+        <div class="card-content">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div>
+              <h3>Material</h3>
+              <p id="current-material">Double-glazed window panel</p>
+            </div>
+            <div>
+              <h3>Thickness</h3>
+              <p id="current-thickness">24 mm</p>
+            </div>
+            <div>
+              <h3>Test Duration</h3>
+              <p id="test-duration">01:42:35</p>
+            </div>
+            <div>
+              <h3>Status</h3>
+              <p id="test-status"><span style="color: var(--secondary-color);">● In progress</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Live Transmittance Value -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span class="data-label">Current Thermal Transmittance (U-Value)</span>
+        <div class="data-value" id="transmittance-value">0.285 W/(m²·K)</div>
+        <p style="max-width: 500px; margin: 0 auto; color: #666;">This value represents the calculated thermal transmittance based on the current temperature readings. The value stabilizes when thermal equilibrium is reached.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Temperature Chart Section -->
+  <section class="section" style="background-color: #f5f5f5; padding-bottom: 3rem;">
+    <div class="container">
+      <h2 class="section-title">Temperature Readings</h2>
+      
+      <!-- Current Temperature Values -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem;">
+        <div class="card">
+          <div class="card-content" style="text-align: center;">
+            <h3 style="color: var(--primary-color);">Internal Temp 1</h3>
+            <div class="data-value" id="internal-temp-1">22.45 °C</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content" style="text-align: center;">
+            <h3 style="color: var(--primary-color);">Internal Temp 2</h3>
+            <div class="data-value" id="internal-temp-2">22.52 °C</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content" style="text-align: center;">
+            <h3 style="color: var(--accent-color);">External Temp 1</h3>
+            <div class="data-value" id="external-temp-1">5.85 °C</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content" style="text-align: center;">
+            <h3 style="color: var(--accent-color);">External Temp 2</h3>
+            <div class="data-value" id="external-temp-2">5.92 °C</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Temperature Chart -->
+      <div class="chart-container" style="height: 400px;">
+        <canvas id="temperature-chart"></canvas>
+      </div>
+      
+      <p style="text-align: center; max-width: 800px; margin: 1.5rem auto 0;">The chart above shows real-time temperature readings from the four sensors. The system continuously monitors these values to determine when temperature stability is achieved for accurate transmittance calculations.</p>
+    </div>
+  </section>
+
+  <!-- Transmittance Chart Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Transmittance Over Time</h2>
+      
+      <!-- Transmittance Chart -->
+      <div class="chart-container" style="height: 400px;">
+        <canvas id="transmittance-chart"></canvas>
+      </div>
+      
+      <p style="text-align: center; max-width: 800px; margin: 1.5rem auto 0;">This chart tracks the calculated transmittance value over time. When the line stabilizes, it indicates that the measurement has reached a reliable state for final assessment.</p>
+    </div>
+  </section>
+
+  <!-- Historical Data -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <h2 class="section-title">Recent Measurements</h2>
+      
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+          <thead>
+            <tr style="background-color: var(--dark-color); color: white;">
+              <th style="padding: 1rem; text-align: left;">Date</th>
+              <th style="padding: 1rem; text-align: left;">Material</th>
+              <th style="padding: 1rem; text-align: left;">Thickness</th>
+              <th style="padding: 1rem; text-align: left;">Avg. Internal Temp</th>
+              <th style="padding: 1rem; text-align: left;">Avg. External Temp</th>
+              <th style="padding: 1rem; text-align: left;">U-Value</th>
+              <th style="padding: 1rem; text-align: left;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 1rem;">Mar 18, 2025</td>
+              <td>Double-glazed window</td>
+              <td>24 mm</td>
+              <td>22.3 °C</td>
+              <td>5.8 °C</td>
+              <td>0.283 W/(m²·K)</td>
+              <td><a href="#" class="btn btn-primary" style="padding: 0.5rem; font-size: 0.8rem;">View Details</a></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 1rem;">Mar 17, 2025</td>
+              <td>Insulated brick wall</td>
+              <td>150 mm</td>
+              <td>21.9 °C</td>
+              <td>6.2 °C</td>
+              <td>0.352 W/(m²·K)</td>
+              <td><a href="#" class="btn btn-primary" style="padding: 0.5rem; font-size: 0.8rem;">View Details</a></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 1rem;">Mar 16, 2025</td>
+              <td>Single-glazed window</td>
+              <td>6 mm</td>
+              <td>22.1 °C</td>
+              <td>5.9 °C</td>
+              <td>5.734 W/(m²·K)</td>
+              <td><a href="#" class="btn btn-primary" style="padding: 0.5rem; font-size: 0.8rem;">View Details</a></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 1rem;">Mar 15, 2025</td>
+              <td>Wood panel</td>
+              <td>25 mm</td>
+              <td>22.4 °C</td>
+              <td>6.1 °C</td>
+              <td>2.154 W/(m²·K)</td>
+              <td><a href="#" class="btn btn-primary" style="padding: 0.5rem; font-size: 0.8rem;">View Details</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem;">Mar 14, 2025</td>
+              <td>Concrete block</td>
+              <td>100 mm</td>
+              <td>22.0 °C</td>
+              <td>5.7 °C</td>
+              <td>1.435 W/(m²·K)</td>
+              <td><a href="#" class="btn btn-primary" style="padding: 0.5rem; font-size: 0.8rem;">View Details</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align: center;">
+          <a href="#" class="btn btn-secondary">View All Historical Data</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Export Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Data Export</h2>
+      
+      <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <div class="card-content">
+          <h3 style="margin-bottom: 1.5rem;">Download Measurement Data</h3>
+          <p style="margin-bottom: 1.5rem;">Export the current or historical measurement data for further analysis in your preferred format:</p>
+          
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+            <a href="#" class="btn btn-primary">Current Data (CSV)</a>
+            <a href="#" class="btn btn-primary">All Data (CSV)</a>
+            <a href="#" class="btn btn-primary">Current Data (JSON)</a>
+            <a href="#" class="btn btn-primary">All Data (JSON)</a>
+          </div>
+          
+          <p style="font-size: 0.9rem; color: #666;">Data includes timestamps, temperature readings, calculated transmittance values, and material properties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Thermal Transmittance Project</h3>
+          <p>A school project measuring the thermal transmittance of building materials using Raspberry Pi technology.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="data.html">Live Data</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="technical.html">Technical Details</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li>Email: project@school.edu</li>
+            <li>Phone: (123) 456-7890</li>
+            <li>Address: School Name, City, Country</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Thermal Transmittance Project. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load the main script that handles navigation and data updates -->
+  <script src="script.js"></script>
+  
+  <script>
+    // Update the test duration timer
+    function updateTimer() {
+      const timerElement = document.getElementById('test-duration');
+      let [hours, minutes, seconds] = timerElement.textContent.split(':').map(Number);
+      
+      seconds++;
+      if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+          minutes = 0;
+          hours++;
+        }
+      }
+      
+      timerElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+    
+    // Start the timer when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      setInterval(updateTimer, 1000);
+    });
+  </script>
+</body>
+</html>
