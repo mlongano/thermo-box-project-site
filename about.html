@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About the Project - Thermal Transmittance Measurement</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <!-- Navigation -->
+  <!-- Header  -->
+  <include src="header.html"></include>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">Thermal<span>Transmittance</span></a>
@@ -43,11 +47,19 @@
     <div class="container">
       <h2 class="section-title">Project Background</h2>
       <div style="max-width: 800px; margin: 0 auto;">
-        <p>The Thermal Transmittance Measurement Project was initiated as part of our school's science and engineering program to create an affordable and accurate method for measuring the thermal properties of building materials.</p>
-        
-        <p>Thermal transmittance, also known as the U-value, is a key measurement in building physics that quantifies how effective a material is as an insulator. Lower U-values indicate better insulation properties. Traditional methods for measuring U-values often require expensive equipment not accessible to educational institutions.</p>
-        
-        <p>Our project aims to democratize this measurement by creating a low-cost, Raspberry Pi-powered device that can accurately determine the thermal transmittance of various building materials and constructions. This has important implications for building energy efficiency, sustainability, and environmental impact assessment.</p>
+        <p>The Thermal Transmittance Measurement Project was initiated as part of our school's science and engineering
+          program to create an affordable and accurate method for measuring the thermal properties of building
+          materials.</p>
+
+        <p>Thermal transmittance, also known as the U-value, is a key measurement in building physics that quantifies
+          how effective a material is as an insulator. Lower U-values indicate better insulation properties. Traditional
+          methods for measuring U-values often require expensive equipment not accessible to educational institutions.
+        </p>
+
+        <p>Our project aims to democratize this measurement by creating a low-cost, Raspberry Pi-powered device that can
+          accurately determine the thermal transmittance of various building materials and constructions. This has
+          important implications for building energy efficiency, sustainability, and environmental impact assessment.
+        </p>
       </div>
     </div>
   </section>
@@ -56,17 +68,20 @@
   <section class="section" style="background-color: #f5f5f5;">
     <div class="container">
       <h2 class="section-title">Project Goals</h2>
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 1000px; margin: 0 auto;">
+      <div class="grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 1000px; margin: 0 auto;">
         <div class="card">
           <div class="card-content">
             <h3 class="card-title">Educational Value</h3>
-            <p>Create a practical, hands-on learning tool for understanding thermal physics concepts and measurement techniques.</p>
+            <p>Create a practical, hands-on learning tool for understanding thermal physics concepts and measurement
+              techniques.</p>
           </div>
         </div>
         <div class="card">
           <div class="card-content">
             <h3 class="card-title">Measurement Accuracy</h3>
-            <p>Develop a system that provides reliable and accurate thermal transmittance measurements comparable to professional equipment.</p>
+            <p>Develop a system that provides reliable and accurate thermal transmittance measurements comparable to
+              professional equipment.</p>
           </div>
         </div>
         <div class="card">
@@ -78,7 +93,8 @@
         <div class="card">
           <div class="card-content">
             <h3 class="card-title">Material Research</h3>
-            <p>Compare and document the thermal properties of various building materials to inform better construction choices.</p>
+            <p>Compare and document the thermal properties of various building materials to inform better construction
+              choices.</p>
           </div>
         </div>
       </div>
@@ -90,8 +106,9 @@
     <div class="container">
       <h2 class="section-title">Methodology</h2>
       <div style="max-width: 800px; margin: 0 auto;">
-        <p>Our approach to measuring thermal transmittance follows established scientific principles while utilizing modern, accessible technology:</p>
-        
+        <p>Our approach to measuring thermal transmittance follows established scientific principles while utilizing
+          modern, accessible technology:</p>
+
         <h3>Measurement Principle</h3>
         <p>Thermal transmittance (U-value) is calculated using the formula:</p>
         <div style="background-color: #f5f5f5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
@@ -104,10 +121,12 @@
           <li><strong>A</strong> is the area of the material being measured in square meters (m²)</li>
           <li><strong>ΔT</strong> is the temperature difference between the two sides of the material in Kelvin (K)</li>
         </ul>
-        
+
         <h3>Measurement Setup</h3>
-        <p>Our system uses four temperature sensors: two on the "inside" (warm side) and two on the "outside" (cold side) of the test material. This redundancy improves accuracy and allows for verification of temperature stability.</p>
-        
+        <p>Our system uses four temperature sensors: two on the "inside" (warm side) and two on the "outside" (cold
+          side) of the test material. This redundancy improves accuracy and allows for verification of temperature
+          stability.</p>
+
         <h3>Stability Criteria</h3>
         <p>For reliable measurements, we ensure that:</p>
         <ul style="margin-bottom: 1.5rem;">
@@ -115,7 +134,7 @@
           <li>Temperature readings remain stable for at least 30 minutes</li>
           <li>The heat flow through the material has reached steady-state conditions</li>
         </ul>
-        
+
         <h3>Data Processing</h3>
         <p>The Raspberry Pi continuously collects temperature data and performs the following operations:</p>
         <ol style="margin-bottom: 1.5rem;">
@@ -181,39 +200,9 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Thermal Transmittance Project</h3>
-          <p>A school project measuring the thermal transmittance of building materials using Raspberry Pi technology.</p>
-        </div>
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="data.html">Live Data</a></li>
-            <li><a href="findings.html">Findings</a></li>
-            <li><a href="technical.html">Technical Details</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Contact</h3>
-          <ul class="footer-links">
-            <li>Email: project@school.edu</li>
-            <li>Phone: (123) 456-7890</li>
-            <li>Address: School Name, City, Country</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Thermal Transmittance Project. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <include src="footer.html"></include>
 
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

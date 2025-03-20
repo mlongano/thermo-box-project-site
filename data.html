@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Live Data - Thermal Transmittance Measurement</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
   <!-- Chart.js for data visualization -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
+
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="logo">Thermal<span>Transmittance</span></a>
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
-        <li class="nav-item"><a href="data.html" class="nav-link">Live Data</a></li>
-        <li class="nav-item"><a href="findings.html" class="nav-link">Findings</a></li>
-        <li class="nav-item"><a href="technical.html" class="nav-link">Technical</a></li>
-      </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </div>
-  </nav>
+
+  <!-- Header  -->
+  <include src="header.html"></include>
+
 
   <!-- Page Header -->
   <section class="hero" style="height: 40vh;">
@@ -44,7 +32,7 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">Current Measurement</h2>
-      
+
       <div class="card" style="max-width: 800px; margin: 0 auto 2rem;">
         <div class="card-content">
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
@@ -67,12 +55,14 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Live Transmittance Value -->
       <div style="text-align: center; margin-bottom: 3rem;">
         <span class="data-label">Current Thermal Transmittance (U-Value)</span>
         <div class="data-value" id="transmittance-value">0.285 W/(m²·K)</div>
-        <p style="max-width: 500px; margin: 0 auto; color: #666;">This value represents the calculated thermal transmittance based on the current temperature readings. The value stabilizes when thermal equilibrium is reached.</p>
+        <p style="max-width: 500px; margin: 0 auto; color: #666;">This value represents the calculated thermal
+          transmittance based on the current temperature readings. The value stabilizes when thermal equilibrium is
+          reached.</p>
       </div>
     </div>
   </section>
@@ -81,9 +71,10 @@
   <section class="section" style="background-color: #f5f5f5; padding-bottom: 3rem;">
     <div class="container">
       <h2 class="section-title">Temperature Readings</h2>
-      
+
       <!-- Current Temperature Values -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem;">
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem;">
         <div class="card">
           <div class="card-content" style="text-align: center;">
             <h3 style="color: var(--primary-color);">Internal Temp 1</h3>
@@ -109,13 +100,15 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Temperature Chart -->
       <div class="chart-container" style="height: 400px;">
         <canvas id="temperature-chart"></canvas>
       </div>
-      
-      <p style="text-align: center; max-width: 800px; margin: 1.5rem auto 0;">The chart above shows real-time temperature readings from the four sensors. The system continuously monitors these values to determine when temperature stability is achieved for accurate transmittance calculations.</p>
+
+      <p style="text-align: center; max-width: 800px; margin: 1.5rem auto 0;">The chart above shows real-time
+        temperature readings from the four sensors. The system continuously monitors these values to determine when
+        temperature stability is achieved for accurate transmittance calculations.</p>
     </div>
   </section>
 
@@ -123,13 +116,15 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">Transmittance Over Time</h2>
-      
+
       <!-- Transmittance Chart -->
       <div class="chart-container" style="height: 400px;">
         <canvas id="transmittance-chart"></canvas>
       </div>
-      
-      <p style="text-align: center; max-width: 800px; margin: 1.5rem auto 0;">This chart tracks the calculated transmittance value over time. When the line stabilizes, it indicates that the measurement has reached a reliable state for final assessment.</p>
+
+      <p style="text-align: center; max-width: 800px; margin: 1.5rem auto 0;">This chart tracks the calculated
+        transmittance value over time. When the line stabilizes, it indicates that the measurement has reached a
+        reliable state for final assessment.</p>
     </div>
   </section>
 
@@ -137,7 +132,7 @@
   <section class="section" style="background-color: #f5f5f5;">
     <div class="container">
       <h2 class="section-title">Recent Measurements</h2>
-      
+
       <div style="overflow-x: auto;">
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
           <thead>
@@ -210,68 +205,37 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">Data Export</h2>
-      
+
       <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
         <div class="card-content">
           <h3 style="margin-bottom: 1.5rem;">Download Measurement Data</h3>
-          <p style="margin-bottom: 1.5rem;">Export the current or historical measurement data for further analysis in your preferred format:</p>
-          
+          <p style="margin-bottom: 1.5rem;">Export the current or historical measurement data for further analysis in
+            your preferred format:</p>
+
           <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
             <a href="#" class="btn btn-primary">Current Data (CSV)</a>
             <a href="#" class="btn btn-primary">All Data (CSV)</a>
             <a href="#" class="btn btn-primary">Current Data (JSON)</a>
             <a href="#" class="btn btn-primary">All Data (JSON)</a>
           </div>
-          
-          <p style="font-size: 0.9rem; color: #666;">Data includes timestamps, temperature readings, calculated transmittance values, and material properties.</p>
+
+          <p style="font-size: 0.9rem; color: #666;">Data includes timestamps, temperature readings, calculated
+            transmittance values, and material properties.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Thermal Transmittance Project</h3>
-          <p>A school project measuring the thermal transmittance of building materials using Raspberry Pi technology.</p>
-        </div>
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="data.html">Live Data</a></li>
-            <li><a href="findings.html">Findings</a></li>
-            <li><a href="technical.html">Technical Details</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Contact</h3>
-          <ul class="footer-links">
-            <li>Email: project@school.edu</li>
-            <li>Phone: (123) 456-7890</li>
-            <li>Address: School Name, City, Country</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Thermal Transmittance Project. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <include src="footer.html"></include>
 
-  <!-- Load the main script that handles navigation and data updates -->
-  <script src="script.js"></script>
-  
+  <script src="js/main.js"></script>
   <script>
     // Update the test duration timer
     function updateTimer() {
       const timerElement = document.getElementById('test-duration');
       let [hours, minutes, seconds] = timerElement.textContent.split(':').map(Number);
-      
+
       seconds++;
       if (seconds >= 60) {
         seconds = 0;
@@ -281,14 +245,15 @@
           hours++;
         }
       }
-      
+
       timerElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     }
-    
+
     // Start the timer when the page loads
     document.addEventListener('DOMContentLoaded', () => {
       setInterval(updateTimer, 1000);
     });
   </script>
 </body>
+
 </html>

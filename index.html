@@ -5,32 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thermal Transmittance Measurement Project</title>
-  <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="logo">Thermal<span>Transmittance</span></a>
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
-        <li class="nav-item"><a href="data.html" class="nav-link">Live Data</a></li>
-        <li class="nav-item"><a href="findings.html" class="nav-link">Findings</a></li>
-        <li class="nav-item"><a href="technical.html" class="nav-link">Technical</a></li>
-      </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </div>
-  </nav>
-
+  <include src="header.html"></include>
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
@@ -127,43 +108,10 @@
       </div>
     </div>
   </section>
-
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Thermal Transmittance Project</h3>
-          <p>A school project measuring the thermal transmittance of building materials using Raspberry Pi technology.
-          </p>
-        </div>
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="data.html">Live Data</a></li>
-            <li><a href="findings.html">Findings</a></li>
-            <li><a href="technical.html">Technical Details</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Contact</h3>
-          <ul class="footer-links">
-            <li>Email: project@school.edu</li>
-            <li>Phone: (123) 456-7890</li>
-            <li>Address: School Name, City, Country</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Thermal Transmittance Project. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <include src="footer.html"></include>
 
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
