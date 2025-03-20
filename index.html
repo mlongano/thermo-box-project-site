@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thermal Transmittance Measurement Project</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Thermal<span>Transmittance</span></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
+        <li class="nav-item"><a href="data.html" class="nav-link">Live Data</a></li>
+        <li class="nav-item"><a href="findings.html" class="nav-link">Findings</a></li>
+        <li class="nav-item"><a href="technical.html" class="nav-link">Technical</a></li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Thermal Transmittance Measurement System</h1>
+        <p>A Raspberry Pi-based instrument for measuring thermal transmittance (U-value) of building materials.</p>
+        <a href="data.html" class="btn btn-primary">View Live Data</a>
+        <a href="about.html" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Overview Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Project Overview</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="images/thermal-sensor.jpg" alt="Thermal Sensors" class="card-image">
+          <div class="card-content">
+            <h3 class="card-title">Precision Temperature Measurement</h3>
+            <p>Our system uses four high-precision temperature sensors positioned on both sides of a material to
+              accurately measure temperature differentials.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/raspberry-pi.jpg" alt="Raspberry Pi" class="card-image">
+          <div class="card-content">
+            <h3 class="card-title">Raspberry Pi Data Processing</h3>
+            <p>A Raspberry Pi collects and processes temperature data in real-time, calculating transmittance values
+              when thermal stability is achieved.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/data-visualization.jpg" alt="Data Visualization" class="card-image">
+          <div class="card-content">
+            <h3 class="card-title">Real-time Data Visualization</h3>
+            <p>Our web interface provides live temperature graphs and transmittance calculations, allowing for immediate
+              analysis of material properties.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Section -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <h2 class="section-title">Key Features</h2>
+      <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div>
+          <h3><span style="color: var(--primary-color);">01</span> Accurate Measurement</h3>
+          <p>Four-point temperature sensing system ensures high accuracy in determining material thermal properties.</p>
+
+          <h3><span style="color: var(--primary-color);">02</span> Stability Detection</h3>
+          <p>Automated algorithm detects when temperatures have stabilized for reliable transmittance calculations.</p>
+
+          <h3><span style="color: var(--primary-color);">03</span> Raspberry Pi Powered</h3>
+          <p>Affordable and versatile computing platform makes this project accessible for educational purposes.</p>
+        </div>
+        <div>
+          <h3><span style="color: var(--primary-color);">04</span> Real-time Visualization</h3>
+          <p>Live graphing of temperature data and calculated transmittance values.</p>
+
+          <h3><span style="color: var(--primary-color);">05</span> Material Comparison</h3>
+          <p>Test and compare different building materials to evaluate their insulating properties.</p>
+
+          <h3><span style="color: var(--primary-color);">06</span> Open Source Design</h3>
+          <p>All hardware designs and software code are freely available for educational use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Findings Teaser -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Latest Findings</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Our experiments have revealed interesting
+        thermal properties of various common building materials. Here's a preview of our latest results:</p>
+
+      <div class="card" style="max-width: 800px; margin: 0 auto;">
+        <div class="card-content">
+          <h3>Material Comparison Highlights</h3>
+          <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+            <li>Double-glazed windows showed 60% better thermal insulation compared to single-glazed alternatives</li>
+            <li>Insulated brick walls demonstrated a U-value of 0.35 W/(m²·K), outperforming standard brick construction
+            </li>
+            <li>Our testing revealed significant performance variations in supposedly identical materials from different
+              manufacturers</li>
+          </ul>
+          <a href="findings.html" class="btn btn-primary">View All Findings</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Thermal Transmittance Project</h3>
+          <p>A school project measuring the thermal transmittance of building materials using Raspberry Pi technology.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="data.html">Live Data</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="technical.html">Technical Details</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li>Email: project@school.edu</li>
+            <li>Phone: (123) 456-7890</li>
+            <li>Address: School Name, City, Country</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Thermal Transmittance Project. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
