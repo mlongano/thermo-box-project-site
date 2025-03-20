@@ -1,3 +1,21 @@
+// Include header and footer
+function includeHTML() {
+  const includes = document.getElementsByTagName('include');
+  for (let i = 0; i < includes.length; i++) {
+    const element = includes[i];
+    const file = element.getAttribute('src');
+    fetch(file)
+      .then(response => response.text())
+      .then(data => {
+        element.insertAdjacentHTML('afterend', data);
+        element.remove();
+      });
+  }
+}
+
+// Load header and footer on page load
+document.addEventListener('DOMContentLoaded', includeHTML);
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
@@ -55,14 +73,14 @@ function simulateData() {
   // Update chart if using a charting library like Chart.js
   if (window.temperatureChart) {
     const timestamp = new Date().toLocaleTimeString();
-    
+
     // Add new data points
     temperatureChart.data.labels.push(timestamp);
     temperatureChart.data.datasets[0].data.push(internalTemp1);
     temperatureChart.data.datasets[1].data.push(internalTemp2);
     temperatureChart.data.datasets[2].data.push(externalTemp1);
     temperatureChart.data.datasets[3].data.push(externalTemp2);
-    
+
     // Remove old data points if there are too many
     if (temperatureChart.data.labels.length > 20) {
       temperatureChart.data.labels.shift();
@@ -70,7 +88,7 @@ function simulateData() {
         dataset.data.shift();
       });
     }
-    
+
     temperatureChart.update();
   }
 }
@@ -191,18 +209,18 @@ function initTransmittanceChart() {
     // Update transmittance chart when temperature data is updated
     setInterval(() => {
       if (!window.temperatureChart) return;
-      
+
       const timestamp = new Date().toLocaleTimeString();
       const transmittanceValue = parseFloat(document.getElementById('transmittance-value').textContent);
-      
+
       transmittanceChart.data.labels.push(timestamp);
       transmittanceChart.data.datasets[0].data.push(transmittanceValue);
-      
+
       if (transmittanceChart.data.labels.length > 20) {
         transmittanceChart.data.labels.shift();
         transmittanceChart.data.datasets[0].data.shift();
       }
-      
+
       transmittanceChart.update();
     }, 2000);
   }
